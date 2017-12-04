@@ -6,7 +6,6 @@ import Admin from '@/pages/Admin';
 import Inicio from '@/pages/Inicio';
 import LoginRegister from '@/pages/Login-Register';
 import Produtos from '@/pages/Produtos';
-import Sugestao from '@/pages/Sugestao';
 import firebase from 'firebase'
 
 import('vuetify/dist/vuetify.min.css');
@@ -38,12 +37,7 @@ let router = new Router({
       name: 'Login-Register',
       component: LoginRegister,
     },
-    {
-      path: '/sugestao',
-      name: 'Sugestao',
-      component: Sugestao,
-    },
-  ],
+  ]
 });
 
 

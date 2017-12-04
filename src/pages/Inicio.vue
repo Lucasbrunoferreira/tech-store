@@ -12,13 +12,13 @@
       </v-layout>
      <v-layout row id="box-ajuda">
        <v-flex offset-xs1>
-         <h1 id="ajuda">&nbsp;Seja Bem Vindo!</h1><br>
+        <h1 id="ajuda">&nbsp;Seja Bem Vindo!</h1><br>
         <h2 id="ajuda">Precisa de uma sugestão?</h2> 
        </v-flex>
     </v-layout>
     <v-layout id="btn-ajuda">
       <v-flex offset-xs1>
-        <v-btn small outline round color="green" v-on:click="ola" >vamos lá</v-btn> <!--to="/sugestao"-->
+        <v-btn small outline round color="green" to="/sugestao" v-on:click="ola" >vamos lá</v-btn> <!---->
       </v-flex>
     </v-layout>
     </v-container>

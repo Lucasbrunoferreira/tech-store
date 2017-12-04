@@ -1,22 +1,39 @@
 <template>
-  <v-container>
-    <button v-on:click="logout">Logout</button>
-  </v-container>
+  <v-app id="bg-admin">
+    <v-container>
+      <v-layout row>
+        <v-flex class="text-xs-center">
+        <v-btn outline fab color="red" v-on:click="logout">
+          <v-icon>exit_to_app</v-icon>
+        </v-btn>                
+        </v-flex>
+      </v-layout>
+      <ccadminprodutos></ccadminprodutos>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
 /* eslint-disable */
-import firebase from 'firebase';
+import Ccadminprodutos from "../components/admin-produtos";
+import firebase from "firebase";
 
 export default {
+  components: {
+    Ccadminprodutos
+  },
   methods: {
     logout: function() {
-      firebase.auth().signOut().then(() => {
-        this.$router.replace('/')
-      })
-    }
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/");
+        });
+    },
+
   }
-}
+};
 </script>
 
 <style scoped>

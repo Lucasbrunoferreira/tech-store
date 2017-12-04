@@ -27,20 +27,20 @@
 </template>
 
 <script>
-  import CcLogin from '../components/login';
-  import CcRegister from '../components/register';
-
-  export default {
-    components: {
-      CcLogin,
-      CcRegister,
-    },
-  };
+import CcLogin from "../components/login";
+import CcRegister from "../components/register";
+export default {
+  components: {
+    CcLogin,
+    CcRegister
+  }
+};
 </script>
 
 <style scoped>
-#bg-login{
-   background: #000 url("../assets/bg_login_register.jpg") no-repeat center top fixed;
+#bg-login {
+  background: #000 url("../assets/bg_login_register.jpg") no-repeat center top
+    fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
