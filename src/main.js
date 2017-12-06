@@ -6,15 +6,16 @@ import router from './router';
 import VueFire from 'vuefire'
 import firebase from 'firebase';
 
+
 Vue.use(Vuetify);
 Vue.use(firebase);
-Vue.use(VueFire)
+Vue.use(VueFire);
 
 Vue.config.productionTip = false;
 
- new Vue({
-      el: '#app',
-      template: '<App/>',
-      components: { App },
-      router
+new Vue({
+  el: '#app',
+  template: '<App/>',
+  components: { App },
+  router,
 });

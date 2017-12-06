@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Vue from 'vue';
 import Router from 'vue-router';
 
@@ -6,13 +5,12 @@ import Admin from '@/pages/Admin';
 import Inicio from '@/pages/Inicio';
 import LoginRegister from '@/pages/Login-Register';
 import Produtos from '@/pages/Produtos';
-import firebase from 'firebase'
 
 import('vuetify/dist/vuetify.min.css');
 
 Vue.use(Router);
 
-let router = new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -37,7 +35,7 @@ let router = new Router({
       name: 'Login-Register',
       component: LoginRegister,
     },
-  ]
+  ],
 });
 
 

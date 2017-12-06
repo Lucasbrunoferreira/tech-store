@@ -18,7 +18,7 @@
     </v-layout>
     <v-layout id="btn-ajuda">
       <v-flex offset-xs1>
-        <v-btn small outline round color="green" to="/sugestao" v-on:click="ola" >vamos lá</v-btn> <!---->
+        <v-btn small outline round color="green" to="/sugestao">vamos lá</v-btn> <!---->
       </v-flex>
     </v-layout>
     </v-container>
@@ -29,17 +29,6 @@
 </template>
   
 <script>
-/* eslint-disable */
-import firebase from "firebase";
-
-export default {
-  methods: {
-    ola: function() {
-      let currentUser = firebase.auth().currentUser;
-      alert(currentUser.email);
-    }
-  }
-};
 </script>
 
 <style scoped>
