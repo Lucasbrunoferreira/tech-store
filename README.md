@@ -1,7 +1,7 @@
 # ![](src/assets/logo_black.png)
 
 > Prova Técnica Estágio Patos de Minas 
->> Sistema de cadastro e exibição de computares para venda
+>> Sistema de cadastro e exibição de computadores para venda.
 
 ## Metodologia
 
@@ -12,7 +12,7 @@
 ## Desenvolvedor(es)
 * Lucas Bruno Ferreira
 
-## Rodando o Sistema
+## Executando o Sistema
 
 ``` bash
 # instalar dependencias
@@ -21,5 +21,7 @@ npm install
 # Abri-lo no localhost:8080
 npm run dev
 
-```
+É preferível ter instalado globalmente: Firebase, Vue-cli, vue-router e vuetify.
+
+``
 
