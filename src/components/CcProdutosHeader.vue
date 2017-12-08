@@ -5,13 +5,10 @@
   </v-carousel><br>
   <v-card style="height:80px; background:rgba(0,0,0,0.1);padding-top:16px">
    <v-layout text-xs-center>
-    <v-flex xs12 sm4 offset-sm1>
-     <v-btn round flat color="black">Sugestão</v-btn>
+    <v-flex xs12 sm3 offset-sm3>
+     <v-btn round flat color="black"   to="/destaque">Destaque</v-btn>
     </v-flex >
-    <v-flex xs12 sm1>
-     <v-btn round flat color="black">Destaque</v-btn>
-    </v-flex>
-    <v-flex xs12 sm4>
+    <v-flex xs12 sm3>
      <v-btn round flat color="black"  v-on:click="logout">Sair</v-btn>
     </v-flex>
     </v-layout>
@@ -23,6 +20,7 @@
 import firebase from 'firebase';
 
 export default {
+  name: 'produtos-cabecalho',
   data() {
     return {
       items: [

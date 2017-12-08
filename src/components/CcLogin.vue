@@ -27,7 +27,7 @@
 import firebase from "firebase";
 
 export default {
-  name: "login",
+  name: 'login',
   data: function() {
     return {
       email: "",
@@ -45,6 +45,7 @@ export default {
               alert("Você esta fazendo login como Administrador!");
               this.$router.replace("admin");
             } else {
+              alert("Seja bem vindo!");
               this.$router.replace("produtos");
             }
           },

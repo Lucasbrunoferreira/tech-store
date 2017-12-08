@@ -1,21 +1,26 @@
-# tech-store
+# ![](src/assets/logo.png)
+# TechStore
 
 > Prova Técnica Estágio Patos de Minas
+> Sistema de cadastro e exibição de computares para venda
 
-## Build Setup
+## Metodologia
+
+* # ![](src/assets/vue.png) - Vue.js - Framework JavaScript
+* # ![](src/assets/vuetifyjs.png) - Vuetify - Framework Css
+* # ![](src/assets/firebase.png) - Firebase - Banco de Dados não relacional
+
+## Desenvolvedor(es)
+* Lucas Bruno Ferreira
+
+## Rodando o Sistema
 
 ``` bash
-# install dependencies
+# instalar dependencias
 npm install
 
-# serve with hot reload at localhost:8080
+# Abri-lo no localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Admin from '@/pages/Admin';
-import Inicio from '@/pages/Inicio';
-import LoginRegister from '@/pages/Login-Register';
-import Produtos from '@/pages/Produtos';
+import Admin from '@/pages/PageAdmin';
+import Inicio from '@/pages/PageInicio';
+import LoginRegister from '@/pages/PageLoginRegister';
+import Produtos from '@/pages/PageProdutos';
+import Destaque from '@/pages/PageDestaque';
 
 import('vuetify/dist/vuetify.min.css');
 
@@ -34,6 +35,11 @@ const router = new Router({
       path: '/login-register',
       name: 'Login-Register',
       component: LoginRegister,
+    },
+    {
+      path: '/destaque',
+      name: 'Destaque',
+      component: Destaque,
     },
   ],
 });

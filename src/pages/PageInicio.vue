@@ -6,20 +6,14 @@
           <img id="logo" src="../assets/logo.png">
         </v-flex>
         <v-flex class="text-xs-center" id="btns">
-          <v-btn outline round color="white" to="/produtos">Produtos</v-btn>
+          <v-btn outline round color="white" to="/destaque">Destaque</v-btn>
           <v-btn outline round color="white" to="/login-register">Entrar</v-btn>
         </v-flex>
       </v-layout>
      <v-layout row id="box-ajuda">
        <v-flex offset-xs1>
         <h1 id="ajuda">&nbsp;Seja Bem Vindo!</h1><br>
-        <h2 id="ajuda">Precisa de uma sugestão?</h2> 
        </v-flex>
-    </v-layout>
-    <v-layout id="btn-ajuda">
-      <v-flex offset-xs1>
-        <v-btn small outline round color="green" to="/sugestao">vamos lá</v-btn> <!---->
-      </v-flex>
     </v-layout>
     </v-container>
     <v-footer color="grey darken-4" class="pa-3">
@@ -29,6 +23,10 @@
 </template>
   
 <script>
+export default {
+  name: 'page-inicio',
+  
+};
 </script>
 
 <style scoped>
@@ -45,7 +43,7 @@
   color: #fff;
 }
 #box-ajuda {
-  padding: 7% 0% 0%;
+  padding: 10% 0% 0%;
 }
 #logo {
   width: 100%;
@@ -53,16 +51,6 @@
 #btns {
   padding-top: 12px;
 }
-#btn-ajuda {
-  padding-left: 40px;
-}
-@media screen and (max-width: 650px) {
-  #box-ajuda {
-    padding: 70% 0% 2% 15%;
-  }
-  #btn-ajuda {
-    padding-left: 28%;
-  }
-}
+
 </style>
 

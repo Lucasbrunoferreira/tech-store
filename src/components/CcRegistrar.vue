@@ -9,8 +9,8 @@
    <v-flex offset-sm2 offset-md3 md6 xs12 sm8 id="box">
     <v-form ref="form" lazy-validation id="form">
      <v-text-field dark class="grey--text text--lighten-1" type="email" v-model="email" label="E-mail" ></v-text-field>
-     <v-text-field dark class="grey--text text--lighten-1" label="Senha" type="Password" v-model="password"></v-text-field>
-     <v-text-field dark class="grey--text text--lighten-1" label="Confirme a senha"  type="password"></v-text-field>
+     <v-text-field dark class="grey--text text--lighten-1" label="Senha" type="Password" id="senha" v-model="password"></v-text-field>
+     <v-text-field dark class="grey--text text--lighten-1" label="Confirme a senha" id="csenha" type="password" v-model="confirmacao"></v-text-field>
      <v-layout style="padding:5%;">
       <v-flex offset-xs3 xs6>
        <v-btn round outline block color="green" v-on:click="signUp" >Cadastrar</v-btn>
@@ -28,15 +28,20 @@
 import firebase from 'firebase';
 
 export default {
-  name: 'signUp',
+  name: 'registrar',
   data: function () {
     return {
       email: '',
       password: '',
+      confirmacao: '',
     };
   },
   methods: {
     signUp: function () {
+      if(this.password != this.confirmacao){
+        alert('As senhas não se coicidem!');
+        return false;
+      }
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
@@ -46,7 +51,7 @@ export default {
             location.reload();
           },
           err => {
-            alert('Algum campo ficou incorreto!');
+            alert('Algum campo ficou incorreto');
           },
         );
     },

@@ -18,7 +18,7 @@
             <CcLogin></CcLogin>
           </span>
           <span flat v-if="i == 2">
-            <CcRegister></CcRegister>
+            <CcRegistrar></CcRegistrar>
           </span>
         </v-tabs-content>
       </v-tabs-items>
@@ -28,13 +28,14 @@
 
 <script>
 
-import CcLogin from '../components/login';
-import CcRegister from '../components/register';
+import CcLogin from '../components/CcLogin';
+import CcRegistrar from '../components/CcRegistrar';
 
 export default {
+  name: 'page-login-registrar',
   components: {
     CcLogin,
-    CcRegister,
+    CcRegistrar,
   },
 };
 </script>
