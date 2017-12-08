@@ -1,14 +1,13 @@
-# ![](src/assets/logo.png)
-# TechStore
+# ![](src/assets/logo_black.png)
 
-> Prova Técnica Estágio Patos de Minas
-> Sistema de cadastro e exibição de computares para venda
+> Prova Técnica Estágio Patos de Minas 
+>> Sistema de cadastro e exibição de computares para venda
 
 ## Metodologia
 
-* # ![](src/assets/vue.png) - Vue.js - Framework JavaScript
-* # ![](src/assets/vuetifyjs.png) - Vuetify - Framework Css
-* # ![](src/assets/firebase.png) - Firebase - Banco de Dados não relacional
+* ![](src/assets/vue.png)  Vue.js - Framework JavaScript
+* ![](src/assets/vuetifyjs.png)  Vuetify - Framework Css
+* ![](src/assets/firebase.png)  Firebase - Banco de Dados não relacional
 
 ## Desenvolvedor(es)
 * Lucas Bruno Ferreira
