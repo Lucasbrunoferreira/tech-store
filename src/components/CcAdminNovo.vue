@@ -1,5 +1,8 @@
 <template>
  <v-flex xs12 offset-sm3 sm6 style="padding-top:20px;">
+   <v-alert outline color="success" icon="check_circle" :value="true" v-if="successAlert">
+      Produto cadastrado com Sucesso!
+    </v-alert>
   <v-card class="elevation-8" style="margin:5px; padding: 20px ">
    <v-form v-on:submit.prevent="addproduto">
     <v-layout row wrap>
@@ -15,15 +18,15 @@
       <v-text-field  type="text"  label="Placa de Vídeo" class="blue--text text--lighten-1" v-model="newproduto.video"></v-text-field>
      </v-flex>
      <v-flex xs10 offset-xs1 sm4 offset-sm1>
-      <v-text-field type="text"  label="Memoria RAM" class="blue--text text--lighten-1" v-model="newproduto.ram"/></v-text-field>
+      <v-text-field type="text"  label="Memoria RAM" class="blue--text text--lighten-1" v-model="newproduto.ram"></v-text-field>
      </v-flex>
     </v-layout>
     <v-layout row wrap>
      <v-flex xs10 offset-xs1 sm5 offset-sm1>
-      <v-text-field type="text" label="Memoria de Armazenamento" class="blue--text text--lighten-1" v-model="newproduto.armazenamento"/></v-text-field>
+      <v-text-field type="text" label="Memoria de Armazenamento" class="blue--text text--lighten-1" v-model="newproduto.armazenamento"></v-text-field>
      </v-flex>
      <v-flex xs10 offset-xs1 sm4 offset-sm1>
-      <v-text-field type="number"  label="Valor de Venda" class="blue--text text--lighten-1" v-model="newproduto.valor"/></v-text-field>
+      <v-text-field type="number"  label="Valor de Venda" class="blue--text text--lighten-1" v-model="newproduto.valor"></v-text-field>
      </v-flex>
      </v-layout>
      <v-flex xs12>
@@ -35,11 +38,11 @@
         </div>
         <v-card>
          <v-flex xs6 offset-xs3>
-          <v-text-field type="text"  label="Nome Imagem 1" class="green--text text--lighten-1" v-model="newproduto.img1"/></v-text-field>
+          <v-text-field type="text"  label="Nome Imagem 1" class="green--text text--lighten-1" v-model="newproduto.img1"></v-text-field>
           <input accept=".jpg, .png" type="file" value="upload" @change="fileBtn1(file1, $event)">
-          <v-text-field type="text"  label="Nome Imagem 2" class="green--text text--lighten-1" v-model="newproduto.img2"/></v-text-field>
+          <v-text-field type="text"  label="Nome Imagem 2" class="green--text text--lighten-1" v-model="newproduto.img2"></v-text-field>
           <input  accept=".jpg, .png" type="file" value="upload" @change="fileBtn2(file2, $event)">
-          <v-text-field type="text"  label="Nome Imagem 3" class="green--text text--lighten-1" v-model="newproduto.img3"/></v-text-field>
+          <v-text-field type="text"  label="Nome Imagem 3" class="green--text text--lighten-1" v-model="newproduto.img3"></v-text-field>
           <input  accept=".jpg, .png" type="file" value="upload" @change="fileBtn3(file3, $event)"> <br><br>
          </v-flex>
         </v-card>
@@ -53,7 +56,7 @@
    </v-card> <br><br>
    <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="500">
-     <v-btn color="primary" flat dark slot="activator"><v-icon>help_outline</v-icon> &ensp;Upload de Imagens </v-btn>       
+     <v-btn color="primary" flat dark slot="activator"><v-icon>help_outline</v-icon> &ensp;Upload de Imagens </v-btn>
      <v-card>
       <v-card-title class="headline">Upload de Imagens</v-card-title>
        <v-card-text>
@@ -84,6 +87,7 @@
 import Firebase from 'firebase';
 import { db } from '../config';
 import CcAdminProdutos from '../components/CcAdminProdutos';
+import Vue from 'vue';
 
 const produtosRef = db.ref('produtos');
 
@@ -98,6 +102,7 @@ export default {
   data() {
     return {
       dialog: false,
+      successAlert: false,
       newproduto: {
         modelo: '',
         processador: '',
@@ -119,6 +124,7 @@ export default {
 
   methods: {
     addproduto: function() {
+      let self = this;
       produtosRef.push(this.newproduto);
       this.newproduto.modelo = '',
       this.newproduto.processador = '',
@@ -129,11 +135,15 @@ export default {
       this.newproduto.img1 = '',
       this.newproduto.img2 = '',
       this.newproduto.img3 = '',
-      alert('Cadastro de produto efetuado com Sucesso!');
-      location.reload();
+
+      this.successAlert = true;
+      setTimeout( function(){
+        self.successAlert = false;
+        location.reload();
+      },3000);
     },
     removeproduto: function(produto) {
-      
+
       produtosRef.child(produto['.key']).remove();
     },
     fileBtn1: function(file1, e) {

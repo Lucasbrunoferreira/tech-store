@@ -13,15 +13,28 @@
      <v-layout style="padding:5%;">
       <v-flex offset-xs3 xs6>
        <v-btn round outline block color="green" v-on:click="signIn" >entrar</v-btn>
-      </v-flex>         
+      </v-flex>
       </v-layout>
     </v-form>
    </v-flex>
   </v-layout>
-  <v-flex style="padding-top:5%;" class="text-xs-center"><a style="text-decoration:none; color:#fff;" href="">VOLTAR AO INÍCIO</a></v-flex>        
+   <v-layout>
+     <v-flex offset-sm4 sm4>
+       <v-alert outline color="error" icon="warning"  v-if="erroAlert" :value="true" transition="slide-y-transition">
+          Algum campo ficou incorreto!
+       </v-alert>
+        <v-alert color="success" icon="check_circle" :value="true" v-if="loginSucess">
+           Seja bem vindo! você sera redirecionado a pagina de produtos.
+        </v-alert>
+        <v-alert outline color="warning" icon="priority_high" :value="true" v-if="loginAdmin">
+           Você esta entrando como administrador.
+        </v-alert>
+     </v-flex>
+   </v-layout>
+  <v-flex style="padding-top:5%;" class="text-xs-center"><a style="text-decoration:none; color:#fff;" href="">VOLTAR AO INÍCIO</a></v-flex>
  </v-container>
 </template>
-    
+
 <script>
 /* eslint-disable */
 import firebase from "firebase";
@@ -30,29 +43,41 @@ export default {
   name: 'login',
   data: function() {
     return {
+      erroAlert: false,
+      loginSucess: false,
+      loginAdmin: false,
       email: "",
       password: ""
     };
   },
   methods: {
     signIn: function() {
+      let self = this;
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
             if (this.email == "admin@techstore.com") {
-              alert("Você esta fazendo login como Administrador!");
-              this.$router.replace("admin");
+              this.loginAdmin = true;
+              setTimeout( function(){
+                self.$router.replace("admin");
+              },4000);
             } else {
-              alert("Seja bem vindo!");
-              this.$router.replace("produtos");
+              this.loginSucess = true;
+              setTimeout( function(){
+                self.$router.replace("produtos");
+              },4000);
             }
           },
-          err => {
-            alert("Algum campo ficou incorreto!");
+        ).catch(
+           err => {
+           this.erroAlert = true;
+           setTimeout( function(){
+            self.erroAlert = false;
+            },3000);
           }
-        );
+        )
     }
   }
 };

@@ -1,6 +1,11 @@
 <template>
  <v-layout row wrap style="padding-top:60px;">
   <v-flex xs12 offset-sm2 sm8>
+  <v-flex>
+    <v-alert outline color="error" icon="warning" :value="true" v-if="deletAlert">
+      O item foi deletado com sucesso!
+    </v-alert>
+  </v-flex>
    <v-expansion-panel popout >
     <v-expansion-panel-content :key="produto.modelo" v-for="produto in produtos ">
     <div slot="header"> {{produto.modelo}} </div>
@@ -36,7 +41,7 @@ export default {
   },
   data() {
     return {
-      dialog: false,
+      deletAlert: false,
       newproduto: {
         modelo: '',
         processador: '',
@@ -58,8 +63,12 @@ export default {
 
   methods: {
     removeproduto: function(produto) {
-      alert('Produto Removido com Sucesso!')
+      let self = this;
+      this.deletAlert = true;
       produtosRef.child(produto['.key']).remove();
+      setTimeout(function(){
+        self.deletAlert = false;
+      },4000)
     },
   },
 };
